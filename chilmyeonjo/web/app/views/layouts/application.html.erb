@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= page_title(content_for(:title)) %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Finends Strategy Viewer">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%= stylesheet_link_tag :app %>
+  </head>
+
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="site-header__inner">
+          <%= link_to "Finends", root_path, class: "site-logo" %>
+          <nav class="site-nav">
+            <%= link_to "Strategies", root_path %>
+            <span class="site-nav__label">Read-only Rails viewer</span>
+          </nav>
+        </div>
+      </header>
+
+      <main class="page-main">
+        <%= yield %>
+      </main>
+    </div>
+  </body>
+</html>

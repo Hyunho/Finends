@@ -67,3 +67,16 @@ python3 -m chilmyeonjo.strategies.box_range.src.cli 005930 --market kospi
 ```bash
 python3 -m chilmyeonjo.strategies.box_range.src.backtest_cli --save-report
 ```
+
+## Rails Viewer
+
+전략 문서와 백테스트 결과를 브라우저에서 보는 Rails viewer는 `chilmyeonjo/web/` 아래에 있습니다.
+
+```bash
+source ~/.zshrc
+cd chilmyeonjo/web
+bundle install
+bin/rails server
+```
+
+이 앱은 `chilmyeonjo/strategies/` 파일을 직접 읽는 읽기 전용 viewer입니다. Python 전략 실행은 기존 CLI 경로를 그대로 사용합니다.

@@ -1,0 +1,29 @@
+<% content_for :title, @document.title %>
+
+<section class="hero hero--compact">
+  <div class="hero__content">
+    <p class="eyebrow"><%= document_category_label(@document) %></p>
+    <h1><%= @document.title %></h1>
+    <p class="hero__copy">
+      <%= link_to @strategy.name, strategy_path(@strategy.name) %>
+      <span class="divider">/</span>
+      <code><%= @document.repo_relative_path %></code>
+    </p>
+  </div>
+  <dl class="hero-stats">
+    <div>
+      <dt>Updated</dt>
+      <dd><%= format_timestamp(@document.updated_at) %></dd>
+    </div>
+    <div>
+      <dt>Slug</dt>
+      <dd><%= @document.slug %></dd>
+    </div>
+  </dl>
+</section>
+
+<section class="panel panel--document">
+  <article class="markdown-body">
+    <%= @rendered_document.html_safe %>
+  </article>
+</section>

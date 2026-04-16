@@ -1,0 +1,56 @@
+<% content_for :title, "Strategies" %>
+
+<section class="hero">
+  <div class="hero__content">
+    <p class="eyebrow">Read-only Rails Viewer</p>
+    <h1>Strategy documents, backtests, and history in one place.</h1>
+    <p class="hero__copy">
+      This app reads files directly from <code>chilmyeonjo/strategies</code> and groups them by strategy.
+      Python execution stays separate.
+    </p>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="section-heading">
+    <h2>Strategies</h2>
+    <p><%= @strategies.count %> strategy directories detected</p>
+  </div>
+
+  <div class="strategy-grid">
+    <% @strategies.each do |strategy| %>
+      <article class="strategy-card">
+        <div class="strategy-card__head">
+          <div>
+            <p class="eyebrow">Strategy</p>
+            <h3><%= strategy.name %></h3>
+          </div>
+          <span class="pill"><%= strategy.documents.count %> docs</span>
+        </div>
+
+        <p class="strategy-card__summary"><%= strategy.summary %></p>
+
+        <dl class="stat-list">
+          <div>
+            <dt>History</dt>
+            <dd><%= strategy.history_documents.count %></dd>
+          </div>
+          <div>
+            <dt>Source</dt>
+            <dd><%= strategy.source_files.count %></dd>
+          </div>
+          <div>
+            <dt>Tests</dt>
+            <dd><%= strategy.test_files.count %></dd>
+          </div>
+          <div>
+            <dt>Updated</dt>
+            <dd><%= format_timestamp(strategy.updated_at) %></dd>
+          </div>
+        </dl>
+
+        <%= link_to "Open strategy", strategy_path(strategy.name), class: "button-link" %>
+      </article>
+    <% end %>
+  </div>
+</section>

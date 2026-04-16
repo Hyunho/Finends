@@ -1,0 +1,93 @@
+<% content_for :title, @strategy.name %>
+
+<section class="hero hero--compact">
+  <div class="hero__content">
+    <p class="eyebrow">Strategy</p>
+    <h1><%= @strategy.name %></h1>
+    <p class="hero__copy"><%= @strategy.summary %></p>
+  </div>
+  <dl class="hero-stats">
+    <div>
+      <dt>Updated</dt>
+      <dd><%= format_timestamp(@strategy.updated_at) %></dd>
+    </div>
+    <div>
+      <dt>Documents</dt>
+      <dd><%= @strategy.documents.count %></dd>
+    </div>
+    <div>
+      <dt>History</dt>
+      <dd><%= @strategy.history_documents.count %></dd>
+    </div>
+  </dl>
+</section>
+
+<div class="content-grid">
+  <section class="panel">
+    <div class="section-heading">
+      <h2>Documents</h2>
+      <p>Markdown files in the strategy root</p>
+    </div>
+
+    <div class="document-list">
+      <% @strategy.documents.each do |document| %>
+        <%= link_to strategy_document_path(@strategy.name, document.slug), class: "document-card" do %>
+          <div class="document-card__meta">
+            <span class="<%= document_css_class(document) %>"><%= document_category_label(document) %></span>
+            <span><%= format_timestamp(document.updated_at) %></span>
+          </div>
+          <h3><%= document.title %></h3>
+          <p><code><%= document.repo_relative_path %></code></p>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="section-heading">
+      <h2>History</h2>
+      <p>Archived attempts and retrospectives</p>
+    </div>
+
+    <div class="document-list">
+      <% @strategy.history_documents.each do |document| %>
+        <%= link_to strategy_document_path(@strategy.name, document.slug), class: "document-card" do %>
+          <div class="document-card__meta">
+            <span class="<%= document_css_class(document) %>"><%= document_category_label(document) %></span>
+            <span><%= format_timestamp(document.updated_at) %></span>
+          </div>
+          <h3><%= document.title %></h3>
+          <p><code><%= document.repo_relative_path %></code></p>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
+</div>
+
+<div class="content-grid">
+  <section class="panel">
+    <div class="section-heading">
+      <h2>Source Files</h2>
+      <p>Implementation files are shown for orientation only</p>
+    </div>
+
+    <ul class="file-list">
+      <% @strategy.source_files.each do |file| %>
+        <li><code><%= file %></code></li>
+      <% end %>
+    </ul>
+  </section>
+
+  <section class="panel">
+    <div class="section-heading">
+      <h2>Tests</h2>
+      <p>Current test files under the strategy package</p>
+    </div>
+
+    <ul class="file-list">
+      <% @strategy.test_files.each do |file| %>
+        <li><code><%= file %></code></li>
+      <% end %>
+    </ul>
+  </section>
+</div>
