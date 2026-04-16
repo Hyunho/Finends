@@ -5,8 +5,8 @@ import json
 import sys
 from pathlib import Path
 
-from chilmyeonjo.box_range.analysis import DEFAULT_LOOKBACK_YEARS
-from chilmyeonjo.box_range.backtest import (
+from chilmyeonjo.strategies.box_range.analysis import DEFAULT_LOOKBACK_YEARS
+from chilmyeonjo.strategies.box_range.backtest import (
     DEFAULT_BACKTEST_TICKERS,
     DEFAULT_ROUND_TRIP_COST,
     build_markdown_report,
