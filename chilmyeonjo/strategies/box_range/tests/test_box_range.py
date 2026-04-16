@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import date, timedelta
 import unittest
 
-from chilmyeonjo.strategies.box_range.analysis import (
+from chilmyeonjo.strategies.box_range.src.analysis import (
     analyze_box_range,
     normalize_ticker,
     PriceBar,

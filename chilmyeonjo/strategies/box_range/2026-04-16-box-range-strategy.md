@@ -1,7 +1,7 @@
 # 박스권 매매 전략
 
 > 현재 채택 전략은 v1입니다.
-> v2 시도 실패 회고는 `chilmyeonjo/strategies/box_range/2026-04-16-box-range-v2-attempt-failed.md`에 남겼습니다.
+> v2 시도 실패 회고는 `chilmyeonjo/strategies/box_range/history/2026-04-16-box-range-v2-attempt-failed.md`에 남겼습니다.
 
 ## 목적
 
@@ -45,38 +45,38 @@
 의존성 설치:
 
 ```bash
-pip install -r chilmyeonjo/strategies/box_range/requirements.txt
+pip install -r chilmyeonjo/strategies/requirements.txt
 ```
 
 미국 주식 예시:
 
 ```bash
-python3 -m chilmyeonjo.strategies.box_range.cli AAPL
+python3 -m chilmyeonjo.strategies.box_range.src.cli AAPL
 ```
 
 국내 주식 예시:
 
 ```bash
-python3 -m chilmyeonjo.strategies.box_range.cli 005930 --market kospi
+python3 -m chilmyeonjo.strategies.box_range.src.cli 005930 --market kospi
 ```
 
 JSON 출력 예시:
 
 ```bash
-python3 -m chilmyeonjo.strategies.box_range.cli TSLA --output json
+python3 -m chilmyeonjo.strategies.box_range.src.cli TSLA --output json
 ```
 
 백테스트 실행 예시:
 
 ```bash
-python3 -m chilmyeonjo.strategies.box_range.backtest_cli --save-report
+python3 -m chilmyeonjo.strategies.box_range.src.backtest_cli --save-report
 ```
 
 특정 종목만 백테스트:
 
 ```bash
-python3 -m chilmyeonjo.strategies.box_range.backtest_cli TSLA
-python3 -m chilmyeonjo.strategies.box_range.backtest_cli 263750.KQ
+python3 -m chilmyeonjo.strategies.box_range.src.backtest_cli TSLA
+python3 -m chilmyeonjo.strategies.box_range.src.backtest_cli 263750.KQ
 ```
 
 ## 출력 항목

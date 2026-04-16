@@ -5,7 +5,7 @@ from datetime import date
 from pathlib import Path
 from typing import Sequence
 
-from chilmyeonjo.strategies.box_range.analysis import (
+from chilmyeonjo.strategies.box_range.src.analysis import (
     DEFAULT_LOOKBACK_YEARS,
     DEFAULT_WINDOW_SIZES,
     BoxRangeResult,
@@ -18,7 +18,7 @@ from chilmyeonjo.strategies.box_range.analysis import (
 DEFAULT_BACKTEST_TICKERS = ("TSLA", "263750.KQ")
 DEFAULT_ROUND_TRIP_COST = 0.003
 DEFAULT_REPORT_DIR = "strategies/box_range"
-PACKAGE_ROOT = Path(__file__).resolve().parents[2]
+PACKAGE_ROOT = Path(__file__).resolve().parents[3]
 
 
 @dataclass(frozen=True)

@@ -52,18 +52,18 @@
 칠면조의 박스권 전략 관련 파일은 `chilmyeonjo/strategies/box_range/` 아래에 모아 두었습니다.
 
 현재 채택 전략 문서는 `chilmyeonjo/strategies/box_range/2026-04-16-box-range-strategy.md`입니다.
-`v2` 시도 실패 회고는 `chilmyeonjo/strategies/box_range/2026-04-16-box-range-v2-attempt-failed.md`에 남겼습니다.
+`v2` 시도 실패 회고는 `chilmyeonjo/strategies/box_range/history/2026-04-16-box-range-v2-attempt-failed.md`에 남겼습니다.
 
 박스권 판단 CLI도 함께 추가했습니다.
 
 ```bash
-pip install -r chilmyeonjo/strategies/box_range/requirements.txt
-python3 -m chilmyeonjo.strategies.box_range.cli AAPL
-python3 -m chilmyeonjo.strategies.box_range.cli 005930 --market kospi
+pip install -r chilmyeonjo/strategies/requirements.txt
+python3 -m chilmyeonjo.strategies.box_range.src.cli AAPL
+python3 -m chilmyeonjo.strategies.box_range.src.cli 005930 --market kospi
 ```
 
 박스권 전략 백테스트와 결과 문서 저장:
 
 ```bash
-python3 -m chilmyeonjo.strategies.box_range.backtest_cli --save-report
+python3 -m chilmyeonjo.strategies.box_range.src.backtest_cli --save-report
 ```

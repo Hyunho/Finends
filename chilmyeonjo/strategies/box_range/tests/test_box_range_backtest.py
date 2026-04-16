@@ -3,8 +3,8 @@ from __future__ import annotations
 from datetime import date, timedelta
 import unittest
 
-from chilmyeonjo.strategies.box_range.analysis import PriceBar
-from chilmyeonjo.strategies.box_range.backtest import (
+from chilmyeonjo.strategies.box_range.src.analysis import PriceBar
+from chilmyeonjo.strategies.box_range.src.backtest import (
     build_markdown_report,
     run_backtest_from_bars,
 )

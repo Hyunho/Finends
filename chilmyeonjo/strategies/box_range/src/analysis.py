@@ -81,7 +81,7 @@ def fetch_price_history(
         import yfinance as yf
     except ImportError as exc:
         raise RuntimeError(
-            "yfinance가 설치되지 않았습니다. `pip install -r chilmyeonjo/strategies/box_range/requirements.txt`를 실행하세요."
+            "yfinance가 설치되지 않았습니다. `pip install -r chilmyeonjo/strategies/requirements.txt`를 실행하세요."
         ) from exc
 
     history = yf.Ticker(ticker).history(

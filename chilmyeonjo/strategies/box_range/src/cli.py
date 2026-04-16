@@ -4,7 +4,7 @@ import argparse
 import json
 import sys
 
-from chilmyeonjo.strategies.box_range.analysis import (
+from chilmyeonjo.strategies.box_range.src.analysis import (
     DEFAULT_LOOKBACK_YEARS,
     analyze_box_range,
     fetch_price_history,
